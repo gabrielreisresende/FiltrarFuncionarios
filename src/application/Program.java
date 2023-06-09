@@ -7,7 +7,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
@@ -32,7 +31,8 @@ public class Program {
 				list.add(new Employee(fields[0], Double.parseDouble(fields[1])));
 				employee = br.readLine();
 			}
-			Collections.sort(list);
+
+			list.sort((emp1, emp2) -> emp1.getName().toUpperCase().compareTo(emp2.getName().toUpperCase()));
 
 			File folderPathStr = new File(path);
 			String folderPath = folderPathStr.getParent() + "\\funcionariosEmOrdem.txt";
